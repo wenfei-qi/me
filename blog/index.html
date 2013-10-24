@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>wenfei / blog</title>
+	<meta name="author" content="QI Wenfei">
+	<link rel="stylesheet" href="/me/blog/stylesheets/master.css" type="text/css" media="screen" title="no title" charset="utf-8" />
+	<!--import favicon.ico-->
+	<link rel="icon" href="/me/blog/resource/favicon.ico" type="image/x-icon"> 
+	<link rel="shortcut icon" href="/me/blog/resource/favicon.ico" type="image/x-icon">
+</head>
+
+<div id="universe">
+	
+	<div id="header">
+		<div id="title">
+			<!-- <a href="/blog/">blog</a> -->
+		</div>
+		<div id="navigation">
+			<a href="/me/">about</a>
+			<a href="/me/blog/" class="selected">blog</a>
+		</div>
+		<div class="clear"></div>
+	</div>
+	
+	<div class="post-world">
+			<!-- every paginator has some posts(:page)-->
+
+	<!-- every post-->
+	<div class="post-item">
+	<div class="post-meta">
+	    <p class="date"><i>21</i><b>Oct</b></p>
+	</div>
+
+	<h1 class="post-title">
+		<a href="/me/blog/2013/10/21/important-Git-commands-in-jekyll-Dev/">Notes (2) of jekyll develop -- Important Git commands</a>
+		<div class="post-title-sub">
+			by QI Wenfei – tags:
+			
+		</div>
+	</h1>
+
+	<div class="post-content">
+		<p>1. TAKES ME ONE AFTERNOON TO FIGURE THIS OUT.</p>
+<p>2. git 初始化 /恢复 </p>
+	
+
+	<p>2.1 删除.git 文件夹 ( or 重新编译site and blog )</p>
+	<pre>
+		<code>$ rm -rf .git </code>
+	</pre>
+
+	<p>2.2 删除所有 git 分支 </p>
+	<pre>
+		<code>$ git init </code>
+	</pre>
+
+
+	<p>2.3 创建本地gh-pages (将来这个本地分支的名字会在远程创建） 所以这里就决定了远程branch的名字</p>
+	<pre>
+		<code>$ git checkout -b gh-pages </code>
+	</pre>
+
+	<p>2.4 添加整个文件夹进commit区（working directory)</p>
+	<pre>
+		<code>$ git add . </code>
+	</pre>
+
+	<p>2.5 为远程git地址创建本地通道 次通道会在内存里保存很久 如果要有新的源代码 无比创建新的名字</p>
+	<pre>
+		<code>$ git remote add pipeline2 yourgitAddress </code>
+	</pre>
+
+	<p>2.6 commit with comments</p>
+	<pre>
+		<code>$ git commit -m "comments"  </code>
+	</pre>
+
+	<p>2.7 通过pipelines push gh-pages这个分支中的东西</p>
+	<pre>
+		<code>$ git push pipeline2 gh-pages </code>
+	</pre>
+
+ 
+ 	<p>3. 更新 </p>
+	<pre>
+		<code>$ git commit -am "comments" </code>
+	</pre>
+
+	<p>4. 删除远程branch </p>
+	<pre>
+		<code>$ git push pipeline  --delete gh-pages </code>
+	</pre>
+	<p>（如果不能删 则说明此branch在setting 中被设为正在使用branch，去setting 修改成其他branch）</p>
+
+	<p>5. 本地的pipeline 不能起一样的名字 即使你init了以后 git 还是会记录在你的缓存里面 所以 一定要起一个另外的名字 命名为pipeline2!!!
+	</p>
+	<p>
+    (花了一个半个下午加半个晚上发现这个问题 因为用de一个pipeline） 
+	</p>
+ 
+	<p>4. 删除远程branch </p>
+	<pre>
+		<code>$ git push pipeline  --delete gh-pages </code>
+	</pre>
+
+	<p>10 几个常用命令 
+
+	<p>10.1 To remove a local branch from your machine:
+	<pre>
+		<code>$ git branch -d the_local_branch</code>
+	</pre>
+	</p>
+
+	<p>10.1 To remove a remote branch:
+	<pre>
+		<code>$ git push origin :the_remote_branch</code>
+	</pre>
+	</p>
+
+	</p>
+
+	<p>10.2 查看current本地分支 :
+	<pre>
+		<code>$ git branch -d the_local_branch</code>
+	</pre>
+	</p>
+
+	<p>10.3 创建新的本地分支:
+	<pre>
+		<code>$ git checkout -b newName</code>
+	</pre>
+	</p>
+ 
+     
+
+
+　　<p>21 Oct 2013</p>
+
+	</div>
+	
+	<p class="post-comment-link">
+		<a href="/me/blog/2013/10/21/important-Git-commands-in-jekyll-Dev/#disqus_thread">Comments</a>
+	</p>
+</div>
+
+	<!-- every post-->
+	<div class="post-item">
+	<div class="post-meta">
+	    <p class="date"><i>19</i><b>Oct</b></p>
+	</div>
+
+	<h1 class="post-title">
+		<a href="/me/blog/2013/10/19/NOTES-jekyllDev/">Notes (1) of jekyll develop -- How to compile and how to add links</a>
+		<div class="post-title-sub">
+			by QI Wenfei – tags:
+			
+		</div>
+	</h1>
+
+	<div class="post-content">
+		　　<p>1.css link: 路径 /就是从根节点 
+	<pre>
+		<code>< link rel="stylesheet" href="stylesheets/master.css" ... /></code>
+	</pre>
+	</p>
+
+	<p>
+		2.ERROR no access permission to `/'
+	<pre>
+		<code>no source/index.html </code>
+	</pre>
+	  
+	</p>
+
+	<p> 
+	3. Compiation Instructions:
+	</p>
+	<p>
+   	1/go to site => jps 
+  	</p>
+    <p>
+    2/go to blog => jps
+    </p>
+    <p>
+    3/go to public => js
+	<p>
+
+
+　　<p>19 Oct 2013</p>
+
+	</div>
+	
+	<p class="post-comment-link">
+		<a href="/me/blog/2013/10/19/NOTES-jekyllDev/#disqus_thread">Comments</a>
+	</p>
+</div>
+
+	<!-- every post-->
+	<div class="post-item">
+	<div class="post-meta">
+	    <p class="date"><i>19</i><b>Oct</b></p>
+	</div>
+
+	<h1 class="post-title">
+		<a href="/me/blog/2013/10/19/MyBlogOnline/">LET'S ROCK !</a>
+		<div class="post-title-sub">
+			by QI Wenfei – tags:
+			
+		</div>
+	</h1>
+
+	<div class="post-content">
+		　　<p>OK LET'S ROCK !</p>
+
+　　<p>19 Oct 2013</p>
+
+	</div>
+	
+	<p class="post-comment-link">
+		<a href="/me/blog/2013/10/19/MyBlogOnline/#disqus_thread">Comments</a>
+	</p>
+</div>
+
+	<!-- every post-->
+	<div class="post-item">
+	<div class="post-meta">
+	    <p class="date"><i>01</i><b>May</b></p>
+	</div>
+
+	<h1 class="post-title">
+		<a href="/me/blog/2013/05/01/fuckworld2/">ni hao lan !</a>
+		<div class="post-title-sub">
+			by QI Wenfei – tags:
+			
+		</div>
+	</h1>
+
+	<div class="post-content">
+		　　<p>我的第2篇文章</p>
+
+　　<p>01 May 2013</p>
+
+	</div>
+	
+	<p class="post-comment-link">
+		<a href="/me/blog/2013/05/01/fuckworld2/#disqus_thread">Comments</a>
+	</p>
+</div>
+
+	<!-- every post-->
+	<div class="post-item">
+	<div class="post-meta">
+	    <p class="date"><i>20</i><b>Apr</b></p>
+	</div>
+
+	<h1 class="post-title">
+		<a href="/me/blog/2013/04/20/helloworld/">你好，世界</a>
+		<div class="post-title-sub">
+			by QI Wenfei – tags:
+			
+		</div>
+	</h1>
+
+	<div class="post-content">
+		    　　<p>我的第一篇文章</p>
+
+    　　<p>20 Apr 2013</p>
+
+	</div>
+	
+	<p class="post-comment-link">
+		<a href="/me/blog/2013/04/20/helloworld/#disqus_thread">Comments</a>
+	</p>
+</div>
+
+	</div>
+	
+	<div class="sidebar">
+	<div class="about-me">
+		<h1>&nbsp;</h1>
+		<a   class="fancybox no-title avatar"><img src="/me/blog/resource/profile_m.png" alt="" /></a>
+		<div class="description">
+			<p>
+				I'm a fucking J2EE / Web developer. 
+			</p>
+			<div class="clear"></div>
+			<dl class="labels">
+				<dt>email</dt>
+				<dd><a>franklinqwf@gmail.com</a></dd>
+				<dt>resume</dt>
+				<dd>
+					<a href="/me/blog/resource/CV_WenfeiQI_J.pdf" onclick="_gaq.push(['_trackEvent', 'download', 'resume', '.pdf']);">pdf</a>
+				</dd>
+				<dt><a href="https://www.google.fr/search?&q=wenfei+qi" onclick="_gaq.push(['_trackEvent', 'linkTo', 'google', this.href]);">more</a></dt>
+				<dd>
+					<a href="http://github.com/wenfei-qi" onclick="">github</a>,
+        			<a href="http://www.facebook.com/franklinqwf" onclick="">facebook</a>,
+        			<a href="http://www.weibo.com/qiwenfeiweibo" onclick="">weibo</a>
+				</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="section recent-articles">
+		<h2>Recent Articles</h2>
+		<dl class="labels">
+			
+				<dt>21 Oct</dt>
+				<dd><a href="/me/blog/2013/10/21/important-Git-commands-in-jekyll-Dev" class="title">Notes (2) of jekyll develop -- Important Git commands</a></dd>
+			
+				<dt>19 Oct</dt>
+				<dd><a href="/me/blog/2013/10/19/NOTES-jekyllDev" class="title">Notes (1) of jekyll develop -- How to compile and how to add links</a></dd>
+			
+				<dt>19 Oct</dt>
+				<dd><a href="/me/blog/2013/10/19/MyBlogOnline" class="title">LET'S ROCK !</a></dd>
+			
+				<dt>01 May</dt>
+				<dd><a href="/me/blog/2013/05/01/fuckworld2" class="title">ni hao lan !</a></dd>
+			
+				<dt>20 Apr</dt>
+				<dd><a href="/me/blog/2013/04/20/helloworld" class="title">你好，世界</a></dd>
+			
+			<dt>&nbsp;</dt>
+			<dd><a href="/me/blog/archive/">See All &rarr;</a></dd>
+		</dl>
+	</div>
+</div>
+
+<div class="clear"></div>
+	
+	<div class="post-paginator">
+		<!-- if total poste > posts in this page-->
+	
+	
+	<a href="/me/blog/archive/">archive</a><br />
+</div>
+	
+</div>
+
